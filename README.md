@@ -14,7 +14,12 @@ Create a folder "strings" and file "strings.json" in it. Write this in "strings.
 }
 ```
 Replace "(<string> id)" on <string> tag id attribute, and "(value)" replace on your text.
-You can create more files in folder "strings" and switch between them using function setFile("strings/(your file name).json").
+You can create more files in folder "strings" and switch between them using function useFile("strings/(your file name).json").
+If you want to create another (not strings.json or not in strings folder) default json file, you need to call function "setFile(path to your json file)":
+```
+ <script type="text/javascript" src="sm.js"></script>
+ <script type="text/javascript">setFile("path/file.json")</script>
+```
 
 ## How to use
 Create in your file some <string> tags and give them unique ids. Then add their ids to json array in file "strings.json".
@@ -29,8 +34,8 @@ Create in your file some <string> tags and give them unique ids. Then add their 
   </head>
   <body>
     <string id='string'></string>
-    <input type='button' value='Use strings.json' onclick='setFile("strings/strings.json")'>
-    <input type='button' value='Use strings2.json' onclick='setFile("strings/strings2.json")'>
+    <input type='button' value='Use strings.json' onclick='useFile("strings/strings.json")'>
+    <input type='button' value='Use strings2.json' onclick='useFile("strings/strings2.json")'>
   </body>
 </html>
 ```
