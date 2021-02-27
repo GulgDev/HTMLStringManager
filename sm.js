@@ -1,13 +1,22 @@
-let file = 'strings\\strings.json';
+// HTML String Manger
+//                by Hyppoprogramm
+// 27.02.2021
+
+let file = 'strings/strings.json';
 function reload(){
-  for(string in strings){
-    let fr = new FileReader(); 
-    fr.onload=function(){ 
-      let res = JSON.parse(fr.result);
-      string.innerHTML(res[string.getAttribute('id')]);
+    let strs = document.getElementsByTagName('string');
+    for (let i = 0; i < strs.length; i++) {
+        let request = new XMLHttpRequest();
+        request.open('GET', 'http://hippoapp.ultimatefreehost.in/' + file, true);
+        request.responseType = 'json';
+        request.send();
+        request.onload = function(){
+            strs[i].innerHTML = request.response[strs[i].id];
+        }
     }
-    fr.readAsText(file); 
-  }
 }
-let strings = document.getElementsByTagName('string');
-reload();
+function setFile(f){
+    file = f;
+    reload();
+}
+document.addEventListener("DOMContentLoaded", reload);
