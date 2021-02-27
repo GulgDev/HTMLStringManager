@@ -1,4 +1,4 @@
-let file = 'strings.json';
+let file = 'strings\\strings.json';
 function reload(){
   for(string in strings){
     let fr = new FileReader(); 
