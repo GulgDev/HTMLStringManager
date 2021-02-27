@@ -9,7 +9,5 @@ function reload(){
     fr.readAsText(file); 
   }
 }
-document.body.onload = function(){
-  let strings = document.GetElementsByTagName('string');
-  reload();
-}
+let strings = document.getElementsByTagName('string');
+reload();
